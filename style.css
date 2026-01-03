@@ -10,11 +10,11 @@
 
 :root {
     --primary-color: #193ee4;
-    --secondary-color: #60249c;
-    --accent-color: #f093fb;
-    --dark-bg: #151538;
+    --secondary-color: #400879;
+    --accent-color: linear-gradient(to left,rgb(0, 238, 255),rgb(0, 47, 255),rgb(0, 0, 153));
+    --dark-bg: #00006d;
     --light-bg: #f8f9fa;
-    --text-dark: #2d3748;
+    --text-dark: #001cbd;
     --text-light: #ffffff;
     --border-color: #e2e8f0;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -37,34 +37,32 @@ body {
    ===================== */
 
 #navbar {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    background: linear-gradient(to left,black,blue,rgb(0, 0, 189),black);
     box-shadow: var(--shadow);
     padding: 1rem 0;
     transition: all 0.3s ease;
 }
-
 #navbar.navbar-dark .navbar-brand {
     font-size: 1.8rem;
     font-weight: 700;
     transition: transform 0.3s ease;
 }
-
 #navbar.navbar-dark .navbar-brand:hover {
     transform: scale(1.1) rotate(5deg);
 }
-
 #navbar.navbar-dark .nav-link {
     margin: 0 0.5rem;
     font-weight: 500;
     position: relative;
     transition: all 0.3s ease;
 }
-
+.nav-link {
+    color: white !important;
+}
 #navbar.navbar-dark .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
-    height: 2px;
     bottom: -5px;
     left: 50%;
     background: var(--accent-color);
@@ -74,7 +72,7 @@ body {
 
 #navbar.navbar-dark .nav-link:hover {
     transform: translateY(-3px);
-    color: var(--accent-color) !important;
+    color:rgb(0, 238, 255) !important;
 }
 
 #navbar.navbar-dark .nav-link:hover::after {
@@ -133,11 +131,11 @@ body {
    ===================== */
 
 .hero-section {
-    background: linear-gradient(135deg, #173bdd 0%, #6c37b1 100%);
+    background: linear-gradient(to left,black,blue,rgb(0, 0, 189),black);
     color: white;
     min-height: 100vh;
     display: flex;
-    align-items: center;
+    justify-content: space-around;
     padding: 3rem 0;
     position: relative;
     overflow: hidden;
@@ -155,9 +153,17 @@ body {
 }
 
 .hero-photo-wrapper {
+    padding: 10px;
+    max-width: 350px;
+    width: 100%;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
     position: relative;
     z-index: 2;
     animation: float 3s ease-in-out infinite;
+    transition: transform 0.3s ease;
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
 }
 
 @keyframes float {
@@ -171,23 +177,16 @@ body {
 
 .hero-photo {
     width: 100%;
-    max-width: 400px;
-    height: 450px;
+    height: 350px;
     object-fit: cover;
-    border-radius: 20px;
-    box-shadow: var(--shadow-lg);
-    border: 5px solid rgba(255, 255, 255, 0.2);
-    transition: transform 0.3s ease;
 }
-
 .hero-photo:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .hero-photo-bg {
     position: absolute;
     width: 100%;
-    height: 100%;
     background: linear-gradient(45deg, transparent 30%, rgba(255, 107, 107, 0.2) 50%, transparent 70%);
     border-radius: 20px;
     animation: shimmer 3s infinite;
@@ -203,6 +202,7 @@ body {
 }
 
 .hero-content {
+    margin: 0;
     z-index: 2;
     animation: slideInRight 0.8s ease;
 }
@@ -220,7 +220,7 @@ body {
 
 .hero-title {
     font-size: 3.5rem;
-    font-weight: 800;
+    font-weight: 500;
     margin-bottom: 1rem;
     animation: fadeInDown 0.8s ease;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -238,8 +238,9 @@ body {
 }
 
 .hero-subtitle {
-    font-size: 2rem;
-    color: var(--accent-color);
+    font-size: 2.2rem;
+    color: rgb(20, 228, 255);
+    text-shadow: 0  5px black;
     margin-bottom: 1.5rem;
     font-weight: 600;
     animation: fadeInUp 0.8s ease 0.1s both;
@@ -265,11 +266,11 @@ body {
 }
 
 .tech-badge {
-    background: rgba(255, 255, 255, 0.2);
+    color: rgb(202, 202, 202);
+    background: rgba(207, 207, 207, 0.2);
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: 500;
-    border: 1px solid rgba(255, 255, 255, 0.3);
     transition: all 0.3s ease;
 }
 
@@ -284,7 +285,7 @@ body {
     padding: 1.5rem;
     border-radius: 15px;
     margin: 2rem 0;
-    border-left: 4px solid var(--accent-color);
+    border-left: 4px solid rgb(0, 238, 255);
     animation: fadeInUp 0.8s ease 0.3s both;
 }
 
@@ -348,7 +349,7 @@ body {
 .section-header h2 {
     font-size: 2.8rem;
     font-weight: 800;
-    color: var(--primary-color);
+    color: var(--accent-color);
     margin-bottom: 1rem;
 }
 
@@ -666,7 +667,7 @@ body {
     position: relative;
 }
 
-.education-card {
+.education-contentbox1, .education-contentbox2 {
     background: white;
     padding: 3rem;
     border-radius: 15px;
@@ -675,7 +676,9 @@ body {
     animation: fadeInUp 0.8s ease;
     border-top: 4px solid var(--primary-color);
 }
-
+.education-contentbox2 {
+    margin-top: 30px;
+}
 .education-card:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-10px);
@@ -1053,4 +1056,16 @@ body {
 
 .pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Additional responsive tweaks for hero */
+@media (max-width: 768px) {
+    .hero-photo-wrapper {
+        max-width: 280px;
+        margin: 0 auto 1.5rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
 }
