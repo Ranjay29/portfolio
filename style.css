@@ -71,8 +71,8 @@ body {
 }
 
 #navbar.navbar-dark .nav-link:hover {
-    transform: translateY(-3px);
-    color:rgb(0, 238, 255) !important;
+    transform: translateY(-3px) scale(1.1);
+    color:gold !important;
 }
 
 #navbar.navbar-dark .nav-link:hover::after {
@@ -131,7 +131,7 @@ body {
    ===================== */
 
 .hero-section {
-    background: linear-gradient(to left,black,blue,rgb(0, 0, 189),black);
+    background: linear-gradient(to left,black,rgb(0, 0, 189),rgb(2, 2, 214),blue,rgb(2, 2, 214),rgb(0, 0, 189),black);
     color: white;
     min-height: 100vh;
     display: flex;
@@ -275,7 +275,7 @@ body {
 }
 
 .tech-badge:hover {
-    background: var(--accent-color);
+    background:linear-gradient(to left,rgb(0, 238, 255),rgb(0, 47, 255));
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(240, 147, 251, 0.4);
 }
@@ -315,14 +315,14 @@ body {
 }
 
 .hero-cta .btn-primary {
-    background: var(--accent-color);
+    background: linear-gradient(to left,rgb(0, 238, 255),rgb(0, 47, 255));
     border: none;
 }
 
 .hero-cta .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba(240, 147, 251, 0.4);
-    background: #ff6fc7;
+    background: linear-gradient(to left,rgb(0, 238, 255),rgb(0, 47, 255),blue,black);
 }
 
 .hero-cta .btn-outline-light:hover {
@@ -336,7 +336,7 @@ body {
    ===================== */
 
 .skills-section {
-    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     padding: 6rem 0;
     position: relative;
 }
@@ -446,7 +446,7 @@ body {
    ===================== */
 
 .projects-section {
-    background: white;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     padding: 6rem 0;
     position: relative;
 }
@@ -543,7 +543,7 @@ body {
 }
 
 .tech-tag {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(to left,rgb(26, 68, 255),blue);
     color: white;
     padding: 0.4rem 0.8rem;
     border-radius: 20px;
@@ -559,7 +559,7 @@ body {
 
 .project-btn {
     display: inline-block;
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     padding: 0.6rem 1.5rem;
     border-radius: 25px;
@@ -927,6 +927,45 @@ body {
 
 .fade-in {
     animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Reveal utility for scroll-triggered animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px) scale(0.995);
+    will-change: opacity, transform;
+    transition: opacity 600ms cubic-bezier(.22,1,.36,1), transform 600ms cubic-bezier(.22,1,.36,1);
+}
+.reveal-visible, .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Stagger children using CSS variable --delay (JS will set per-element delays) */
+.reveal > * {
+    transition: opacity 600ms cubic-bezier(.22,1,.36,1), transform 600ms cubic-bezier(.22,1,.36,1);
+    transition-delay: var(--delay, 0ms);
+    opacity: 0;
+    transform: translateY(8px);
+}
+.reveal-visible > * {
+    opacity: 1;
+    transform: none;
+}
+
+/* Animate progress-bar width when parent revealed */
+.reveal-visible .progress-bar {
+    transition: width 1s cubic-bezier(.22,1,.36,1);
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .reveal, .fade-in, .hero-photo-wrapper, .hero-content {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
 }
 
 /* =====================
