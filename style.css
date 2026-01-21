@@ -47,10 +47,10 @@ body {
     font-weight: 700;
     transition: transform 0.3s ease;
 }
-#navbar.navbar-dark .navbar-brand:hover {
+#navbar .navbar-dark .navbar-brand:hover {
     transform: scale(1.1) rotate(5deg);
 }
-#navbar.navbar-dark .nav-link {
+#navbar .navbar-dark .nav-link {
     margin: 0 0.5rem;
     font-weight: 500;
     position: relative;
@@ -59,7 +59,7 @@ body {
 .nav-link {
     color: white !important;
 }
-#navbar.navbar-dark .nav-link::after {
+#navbar .navbar-dark .nav-link::after {
     content: '';
     position: absolute;
     width: 0;
@@ -70,12 +70,12 @@ body {
     transform: translateX(-50%);
 }
 
-#navbar.navbar-dark .nav-link:hover {
+#navbar .navbar-dark .nav-link:hover {
     transform: translateY(-3px) scale(1.1);
     color:gold !important;
 }
 
-#navbar.navbar-dark .nav-link:hover::after {
+#navbar .navbar-dark .nav-link:hover::after {
     width: 100%;
 }
 
@@ -973,6 +973,16 @@ body {
    ===================== */
 
 @media (max-width: 768px) {
+/* Additional responsive tweaks for hero */
+    .hero-photo-wrapper {
+        max-width: 280px;
+        margin: 0 auto 1.5rem;
+    }
+
+    .hero-content {
+        text-align: center;
+    }
+
     .hero-section {
         min-height: auto;
         padding: 3rem 0;
@@ -1023,7 +1033,6 @@ body {
         margin: 0.5rem;
     }
 }
-
 @media (max-width: 576px) {
     .hero-title {
         font-size: 2rem;
@@ -1097,14 +1106,3 @@ body {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-/* Additional responsive tweaks for hero */
-@media (max-width: 768px) {
-    .hero-photo-wrapper {
-        max-width: 280px;
-        margin: 0 auto 1.5rem;
-    }
-
-    .hero-content {
-        text-align: center;
-    }
-}
