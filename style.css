@@ -470,6 +470,7 @@ body {
 .project-image {
     position: relative;
     height: 250px;
+    background: linear-gradient(to left,rgb(0, 238, 255),rgb(0, 47, 255),rgb(0, 0, 153));
     overflow: hidden;
 }
 
